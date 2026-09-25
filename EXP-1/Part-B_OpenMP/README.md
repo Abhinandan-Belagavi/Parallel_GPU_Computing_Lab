@@ -1,4 +1,7 @@
 Part B – OpenMP Matrix Multiplication
+Student Name: Abhinandan Shantinath Belagavi
+
+USN: 01FE24BCI052
 
 1. Aim
 
