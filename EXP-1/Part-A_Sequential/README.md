@@ -1,4 +1,4 @@
-Part A – Sequential Matrix Multiplication Using
+Part A – Sequential Matrix Multiplication
 
 Student Name: Abhinandan Shantinath Belagavi
 
