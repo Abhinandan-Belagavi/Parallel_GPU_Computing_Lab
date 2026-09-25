@@ -26,21 +26,7 @@ Matrix multiplication is a fundamental operation used in scientific computing, m
 
 The sequential implementation executes using a single CPU core, meaning each matrix element is computed one after another. The execution time obtained from this implementation serves as the baseline for comparing OpenMP, MPI, and CUDA implementations.
 
-eeeba76e-8a2d-4d59-b2d1-7ae5159180ea.docx
-4. Hardware and Software Requirements
-
-Hardware Requirements
-
-	
-
-Software Requirements
-
-
-Windows 10/11 Laptop or Desktop	Windows PowerShell
-Multi-Core Processor	WSL2 Ubuntu
-Minimum 8 GB RAM	GCC Compiler (build-essential)
-Internet Connection	Ubuntu Terminal
-5. Procedure
+4. Procedure
 Step 1: Open Windows PowerShell
 
 Open Windows PowerShell from the Start Menu. This terminal is used to verify the WSL installation and launch the Ubuntu environment.
@@ -204,7 +190,7 @@ Screenshot: Insert Screenshot 12 here.
 
 Figure 1.12: Sequential Program Output.
 
-6. Result
+5. Result
 
 The Sequential Matrix Multiplication program executed successfully in the Ubuntu WSL environment.
 
