@@ -1,4 +1,8 @@
 Part C – MPI Distributed Matrix Multiplication
+Student Name: Abhinandan Shantinath Belagavi
+
+USN: 01FE24BCI052
+
 1. Aim
 
 To implement distributed matrix multiplication using MPI across four Ubuntu virtual machines.
