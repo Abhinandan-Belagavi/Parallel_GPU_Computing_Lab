@@ -46,15 +46,6 @@ EXP-1
 └── Part-D_CUDA
 ```
 
-Each folder contains:
-
-* Source code (`.c` or `.cu`)
-* Individual `README.md`
-* Lab report (`.docx`)
-* Screenshots of commands and outputs
-
----
-
 ## Performance Comparison
 
 | Implementation | Execution Model                | Resources Used  | Execution Time |
