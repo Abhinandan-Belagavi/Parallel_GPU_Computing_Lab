@@ -2,26 +2,28 @@
 
 ## Overview
 
-This part implements **Matrix Multiplication using OpenMP** for shared-memory parallel programming. The computation is divided among multiple CPU threads to improve performance over the sequential implementation.
+This experiment implements **Matrix Multiplication using OpenMP**, a shared-memory parallel programming model that utilizes multiple CPU threads to improve execution performance.
 
 ## Theory
 
-OpenMP is a shared-memory parallel programming model that allows multiple threads to execute different parts of a program simultaneously. The outer loop of the matrix multiplication algorithm is parallelized using `#pragma omp parallel for`, enabling multiple CPU cores to compute matrix rows concurrently.
+OpenMP allows a program to execute multiple threads simultaneously on a multi-core processor. In this experiment, the outer loop of the matrix multiplication algorithm is parallelized using the `#pragma omp parallel for` directive. Each thread computes different rows of the output matrix while sharing the same memory space.
 
-## Tools and Technologies
+## Working Principle
+
+1. Initialize matrices A and B.
+2. Set the number of OpenMP threads using `OMP_NUM_THREADS`.
+3. Parallelize the outer loop using OpenMP directives.
+4. Execute matrix multiplication using multiple CPU threads.
+5. Verify the output and measure execution time.
+
+## Tools Used
 
 * C Programming
 * GCC Compiler with OpenMP (`-fopenmp`)
 * WSL2 Ubuntu
 * OpenMP Library
 
-## Files Included
-
-* `matrix_openmp.c` – OpenMP source code.
-* `Lab1_PartB_Report.docx` – Detailed lab report.
-* `screenshots/` – Thread configuration, compilation, CPU usage, and output screenshots.
-
-## Expected Output
+## Output
 
 * Matrix Size: **4000 × 4000**
 * Threads Used: **8**
