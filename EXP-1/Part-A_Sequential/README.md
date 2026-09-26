@@ -2,27 +2,29 @@
 
 ## Overview
 
-This part implements **Sequential Matrix Multiplication** using the C programming language in the Ubuntu WSL environment. The program multiplies two **4000 × 4000** matrices using a single CPU core and records the execution time. This implementation serves as the baseline for comparing parallel computing techniques.
+This experiment implements **Sequential Matrix Multiplication** using the C programming language in the Ubuntu WSL environment. It serves as the baseline implementation for comparing the performance of parallel computing techniques.
 
 ## Theory
 
-Sequential matrix multiplication executes the computation one element at a time using three nested loops. Since only one CPU core performs the entire computation, the execution time is higher than parallel implementations. The output matrix is verified by checking the value of **C[0][0] = 4000.00**.
+Sequential Matrix Multiplication executes the computation using a **single CPU core**. The program uses three nested loops to multiply two **4000 × 4000** matrices. Each element of Matrix A and Matrix B is initialized with **1.0**, and the output matrix C is calculated one element at a time. Since all operations are executed sequentially, this implementation has the highest execution time among all four approaches.
 
-## Tools and Technologies
+## Working Principle
+
+1. Initialize matrices A and B with the value **1.0**.
+2. Initialize output matrix C with **0.0**.
+3. Multiply matrices using three nested loops.
+4. Record execution time using the `clock()` function.
+5. Verify the result by checking **C[0][0] = 4000.00**.
+
+## Tools Used
 
 * C Programming
 * GCC Compiler
 * Windows PowerShell
 * WSL2 Ubuntu
 
-## Files Included
-
-* `matrix_sequential.c` – Sequential matrix multiplication source code.
-* `Lab1_PartA_Report.docx` – Detailed lab report.
-* `screenshots/` – Commands, compilation, and output screenshots.
-
-## Expected Output
+## Output
 
 * Matrix Size: **4000 × 4000**
 * Verification: **C[0][0] = 4000.00**
-* Execution Time: Sequential CPU execution.
+* Execution Model: Single CPU Core
