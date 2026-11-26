@@ -1,113 +1,165 @@
 # CUDA Launch Configuration Analyzer
 ### PGC CUDA Lab Evaluation – Theme 5: Occupancy and Block Size Tuning
 
-## 📌 Project Overview
+<p align="center">
+  <img src="screenshots/banner.png" width="100%" alt="CUDA Launch Configuration Analyzer">
+</p>
+
+## 1. Project Overview
 
 The **CUDA Launch Configuration Analyzer** is a GPU performance analysis project developed using NVIDIA CUDA.
 
-The project investigates how CUDA kernel launch configurations affect GPU occupancy and execution time. It uses a vector addition program to evaluate different thread block sizes and dynamic shared-memory reservations.
+The project studies how different CUDA kernel launch configurations affect GPU occupancy and execution time.
 
-The experiment analyzes GPU resource utilization, theoretical occupancy, and kernel execution performance to identify a suitable launch configuration.
+Using a vector addition program, we evaluate different thread block sizes and dynamic shared-memory reservations to understand their influence on GPU resource utilization and performance.
 
-## 🎯 Objectives
+## 2. Project Objectives
 
-- Understand CUDA thread block and grid configurations.
+- Understand CUDA thread blocks and grid configurations.
 - Analyze the effect of block size on GPU occupancy.
 - Study register usage per thread.
 - Investigate dynamic shared-memory reservation.
 - Measure CUDA kernel execution time.
-- Compare different launch configurations.
-- Identify a configuration with better measured performance.
+- Compare different kernel launch configurations.
+- Identify the best-performing configuration among the tested configurations.
 
-## 🛠️ Technologies Used
+## 3. Technologies Used
 
-- NVIDIA CUDA C/C++
-- Python
-- Pandas
-- Matplotlib
-- NVIDIA CUDA Toolkit
-- Visual Studio Build Tools
+| Technology | Purpose |
+|---|---|
+| CUDA C/C++ | GPU programming |
+| NVIDIA CUDA Toolkit | Compilation and execution |
+| Python | Result analysis |
+| Pandas | Benchmark data processing |
+| Matplotlib | Performance visualization |
+| Visual Studio Build Tools | CUDA compilation on Windows |
 
-## 🖥️ Hardware Environment
+## 4. Hardware and Software Configuration
 
-- GPU: NVIDIA GeForce RTX 5060 Ti
-- Compute Capability: 12.0
-- Number of Streaming Multiprocessors: 36
-- Operating System: Windows
+| Component | Configuration |
+|---|---|
+| GPU | NVIDIA GeForce RTX 5060 Ti |
+| Compute Capability | 12.0 |
+| Streaming Multiprocessors | 36 |
+| Operating System | Windows |
+| CUDA Toolkit | 13.4 (verify installed compiler version) |
+| Python | 3.12 |
 
-## 🧪 Experimental Setup
+## 5. Project Architecture
 
-The project evaluates the following configurations:
+The project follows a workflow involving CUDA program execution, GPU resource analysis, performance measurement, and Python-based result visualization.
 
-**Block sizes:** 128, 256, 512, and 1024 threads.
+**Workflow:**
 
-**Dynamic shared-memory reservations:** 0, 1024, 2048, and 4096 bytes.
+1. Device information is collected from the NVIDIA GPU.
+2. A CUDA vector addition program is executed.
+3. Different thread block sizes are tested.
+4. Dynamic shared-memory reservations are varied.
+5. GPU occupancy and execution time are measured.
+6. Experimental results are processed using Python.
+7. Performance comparisons are generated.
+
+<p align="center">
+  <img src="screenshots/architecture.png" width="100%" alt="Project Architecture">
+</p>
+
+## 6. Experimental Methodology
+
+The experiment uses CUDA vector addition to investigate the impact of launch configurations on GPU performance.
+
+Two main parameters are varied:
+
+**Thread Block Size**
+- 128 threads
+- 256 threads
+- 512 threads
+- 1024 threads
+
+**Dynamic Shared-Memory Reservation**
+- 0 bytes
+- 1024 bytes
+- 2048 bytes
+- 4096 bytes
 
 The benchmark uses a vector size of 16,777,216 elements.
 
-The analyzer records theoretical occupancy, register usage, and kernel execution time for each configuration.
+For each configuration, theoretical occupancy and kernel execution time are recorded.
 
-## 📊 Key Result
+## 7. Experimental Results
 
-The fastest measured configuration in the experiment was:
+The fastest measured configuration in our experiment was:
 
 | Parameter | Result |
 |---|---:|
-| Block size | 512 threads |
-| Dynamic shared memory | 2048 bytes |
-| Theoretical occupancy | 100% |
-| Registers per thread | 12 |
-| Kernel execution time | 0.5094 ms |
-| Validation errors | 0 |
+| Block Size | 512 threads |
+| Shared-Memory Reservation | 2048 bytes |
+| Theoretical Occupancy | 100% |
+| Registers per Thread | 12 |
+| Kernel Execution Time | 0.5094 ms |
+| Validation Errors | 0 |
 
-*Note: The dynamic shared memory is reserved for the experiment; the vector addition calculation itself does not use that memory.*
+The correctness test was separately performed using 1,048,576 elements and reported zero mismatches.
 
-## 📁 Project Structure
+**Observation:** The 512-thread configuration with a 2048-byte shared-memory reservation achieved the lowest measured execution time among the tested configurations.
+
+*Note: The vector addition kernel reserves dynamic shared memory for resource analysis but does not use that memory in its actual calculation. The measured result should therefore be interpreted as a resource-reservation experiment.*
+
+## 8. Execution Screenshots
+
+The following screenshots demonstrate the project execution and experimental output.
+
+### GPU Device Information
+
+![GPU Device Information](screenshots/device_info.png)
+
+### Vector Addition Correctness Test
+
+![Correctness Test](screenshots/correctness_test.png)
+
+### Benchmark Execution
+
+![Benchmark Output](screenshots/benchmark_output.png)
+
+### Final Execution Result
+
+![Execution Result](screenshots/execution_result.png)
+
+## 9. Project Directory Structure
 
 ```text
 cuda-occupancy-block-tuning/
-│
+├── README.md
 ├── src/
 │   ├── device_query.cu
 │   ├── vector_add_basic.cu
 │   └── analyzer.cu
-│
 ├── scripts/
 │   ├── plot_results.py
 │   └── final_summary.py
-│
-├── results/
-│   ├── benchmark_results.csv
-│   └── graphs/
-│
 ├── screenshots/
-│
-├── README.md
 ├── requirements.txt
 └── .gitignore
 ```
 
-## 📈 Results and Visualizations
-
-The project includes graphs comparing:
-
-- Occupancy versus block size.
-- Execution time versus block size.
-- Shared-memory reservation versus execution time.
-
-## 👥 Team Members
+## 10. Team Members and Contributions
 
 This project was developed collaboratively by a team of four members.
 
-1. Member 1 – CUDA device information and vector addition.
-2. Member 2 – CUDA occupancy analyzer and launch configuration experiments.
-3. Member 3 – Result processing, Python scripts, and visualization.
-4. Member 4 – Documentation, testing, and GitHub repository management.
+| Team Member | Contribution |
+|---|---|
+| Member 1 | CUDA device information and vector addition |
+| Member 2 | Occupancy analyzer and launch configuration experiments |
+| Member 3 | Python-based analysis and visualization |
+| Member 4 | Testing, documentation, and GitHub integration |
 
-## 🚀 Conclusion
+## 11. Conclusion
 
-The experiment demonstrates that CUDA launch configuration can influence GPU resource utilization and kernel execution performance.
+This project demonstrates how CUDA kernel launch configurations influence GPU resource utilization and execution performance.
 
-Among the tested configurations, a block size of 512 threads with a 2048-byte dynamic shared-memory reservation achieved the fastest measured execution time.
+By comparing different block sizes and dynamic shared-memory reservations, we identified the fastest measured configuration among our experiments.
 
-The project provides practical experience with CUDA programming, occupancy analysis, GPU benchmarking, and performance visualization.
+The project provides practical experience in CUDA programming, GPU occupancy analysis, kernel benchmarking, and performance visualization.
+
+---
+
+**PGC CUDA Lab Evaluation – Theme 5: Occupancy and Block Size Tuning**
