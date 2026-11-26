@@ -222,10 +222,10 @@ This project was developed collaboratively by a team of four members.
 
 | Team Member | Contribution |
 |---|---|
-| Member 1 – [Name] | CUDA device information and vector addition implementation |
-| Member 2 – [Name] | CUDA occupancy analyzer and launch configuration experiments |
-| Member 3 – [Name] | Python-based result analysis and visualization |
-| Member 4 – [Name] | Testing, documentation, and GitHub repository management |
+| Member 1 – Abhinandan | CUDA device information and vector addition implementation |
+| Member 2 – Pradeep | CUDA occupancy analyzer and launch configuration experiments |
+| Member 3 – Bhavana | Python-based result analysis and visualization |
+| Member 4 – Zakiya | Testing, documentation, and GitHub repository management |
 
 ## 11. Conclusion
 
